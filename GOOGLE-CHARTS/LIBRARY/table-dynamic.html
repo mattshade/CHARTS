@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/cnbc-charts.css">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="js/querywrapper.js"></script>
+	<script type="text/javascript" src="js/stylizr.js"></script>
+    <script type="text/javascript">
+
+	    google.load('visualization', '1', {'packages' : ['table']});
+	    google.setOnLoadCallback(function() { sendAndDraw('') });
+
+	   
+		var dataSourceUrl = dataSource + "&range=" + range + "&key=" + key;
+	    var query;
+		var options = {
+			'width':winWidth
+			,'height':winHeight
+			,allowHtml: true
+			};
+
+	    function sendAndDraw(queryString) {
+	      var container = document.getElementById('chart_div');
+	      var cnbcChart = new google.visualization.Table(container);
+		
+	      query && query.abort();
+	      query = new google.visualization.Query(dataSourceUrl + queryString);
+	      var queryWrapper = new QueryWrapper(query, cnbcChart, options);
+	      queryWrapper.sendAndDraw();
+	    }
+
+
+	  </script>
+  </head>
+
+  <body>    
+	    <div id="chart_div"></div>
+		<div class="cnbc-logo">
+			<img src="img/cnbc-logo.png" />
+		</div>
+  </body>
+</html>

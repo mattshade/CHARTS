@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'webklavika';
+  src: url('fonts/KLAVIKAR.eot?') format('eot'), url('fonts/KLAVIKAR.woff') format('woff'), url('fonts/KLAVIKAR.ttf') format('truetype');
+}
+
+body{margin:0px;padding:0px;}
+.chart-wrapper{border:#d9dade solid 1px;font-family:webklavika;box-sizing:content-box;
+-moz-box-sizing:content-box;position:relative;}
+.chart-title{padding:20px 20px 0px 20px;text-transform:uppercase;color:#424858;font-family:webklavika;}
+.cnbc-logo{text-align:right;padding:10px;}
+
+.chart-wrapper.small, .chart-wrapper.small iframe{width:280px;height:310px;}
+.chart-wrapper.medium, .chart-wrapper.medium iframe{width:500px;height:450px;}
+.chart-wrapper.large, .chart-wrapper.large iframe{width:940px;height:720px;}
+.chart-wrapper.rail, .chart-wrapper.rail iframe{width:350px;height:380px;}
+.chart-wrapper.small .chart-title, .chart-wrapper.rail .chart-title{font-size:14px;line-height:18px;}
+.chart-wrapper.medium .chart-title{font-size:20px;line-height:26px;}
+.chart-wrapper.large .chart-title{font-size:28px;padding:20px 20px 20px 20px;}

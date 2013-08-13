@@ -1,0 +1,67 @@
+Stepped Area Chart
+
+,'width':1000
+		,'height':600
+		,'fontSize':12
+		,'backgroundColor':{stroke:"#d9dade",strokeWidth:'2'}
+		,'titleTextStyle':{color:'#424858',fontSize:18}
+		,'hAxis':{baselineColor:'#d9dade',gridlines:{color:'#d9dade'}}
+		,'vAxis':{baselineColor:'#d9dade',gridlines:{color:'#d9dade'}}
+		,'chartArea': {backgroundColor: {fill: '#f0f3f4',opacity:100}}
+		,'colors':['#0957aa', '#ab0000','#006400','#ffde00']
+		,'legend':{alignment:'center',position:'bottom',textStyle:{color:'#424858'}}
+
+
+
+Scattered Chart
+
+,'width':1000
+		,'height':600
+		,'fontSize':12
+		,'backgroundColor':{stroke:"#d9dade",strokeWidth:'2'}
+		,'titleTextStyle':{color:'#424858',fontSize:18}
+		,'hAxis':{baselineColor:'#d9dade',gridlines:{color:'#d9dade'}}
+		,'vAxis':{baselineColor:'#d9dade',gridlines:{color:'#d9dade'}}
+		,'chartArea': {backgroundColor: {fill: '#f0f3f4',opacity:100}}
+		,'legend':{alignment:'center',position:'bottom',textStyle:{color:'#424858'}}
+		,'colors':['#0957aa']
+
+
+
+Bubble Chart
+
+,'bubble': {textStyle: {fontSize: 11}}
+		    ,'width':1000
+			,'height':600
+			,'titleTextStyle':{color:'#424858',fontSize:18}
+			,'backgroundColor':{stroke:'#d9dade',strokeWidth:'2'}
+			,'fontSize':'12'
+		    ,'chartArea': {backgroundColor: {fill: '#f0f3f4',opacity:100}}
+		    ,'bubble': {textStyle:{color:'#424858'}, stroke:'#0957aa'}
+		    ,'hAxis':{baselineColor:'#d9dade', gridlines:{color:'#d9dade'}}
+		    ,'vAxis':{baselineColor:'#d9dade', gridlines:{color:'#d9dade'}}
+		    ,'colors': ['#0957aa']
+
+
+
+CandleStick Chart
+
+,'width':1000
+			,'height':600
+			,'fontSize': 12
+			,'backgroundColor':{stroke:'#d9dade',strokeWidth:'2'}
+			,'titleTextStyle':{color:'#424858',fontSize:18}
+			,'hAxis':{baselineColor:'#d9dade',gridlines:{color:'#d9dade'}}
+			,'vAxis':{baselineColor:'#d9dade',gridlines:{color:'#d9dade'}}
+			,'chartArea':{backgroundColor: {fill: '#f0f3f4',opacity:100}}
+			,'candlestick': {risingColor:{fill:'#0957aa',stroke:'#0957aa',strokeWidth:'2'}}
+			,'legend':{alignment:'center',position:'bottom',textStyle:{color:'#424858'}}
+			
+
+
+Geo Chart
+
+,'width':1000
+				,'height':600
+				,'backgroundColor':{stroke:"#d9dade",strokeWidth:'2',fill:'#e3e3e3'}
+				,'fontSize':12

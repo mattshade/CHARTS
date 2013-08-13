@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+<script type='text/javascript' src='js/jquery-1.9.1.js'></script>
+<link rel="stylesheet" type="text/css" href="css/cnbc-charts.css">
+<style>
+@font-face {
+  font-family: 'webklavika';
+  src: url('fonts/KLAVIKAR.eot?') format('eot'), url('fonts/KLAVIKAR.woff') format('woff'), url('fonts/KLAVIKAR.ttf') format('truetype');
+}
+body{font-family:Arial;margin:0px;padding:0px;}
+ul{line-height:38px;padding:10px;}
+a{text-decoration:none;color:grey;}
+a:hover{color:tomato;}
+h1{color:grey;font-weight:normal;font-size:59px;margin:0px 0px 10px 0px;}
+#google-link{position:fixed;top:10px;right:20px;z-index:2;}
+#menu{position:fixed;left:20px;}
+.divider{border-top:lightgrey solid 1px;}
+.note{font-size:12px;color:lightgrey;margin:0px 0px 30px 10px;display:block;}
+.chart-container{font-family:Arial, Helvetica;float:left;margin-left:20px;margin-top:20px;}
+
+.chart-container h1{font-weight:normal;font-size:22px;}
+#chart-gallery{width:70%;margin-left:250px;}
+header{position:fixed;border-bottom:lightgrey solid 1px;background:white;width:100%;z-index:1;margin-top:0px;padding:20px 0px 0px 20px;top:0px;}
+section{margin-top:150px;clear:both;}
+#size-menu{position:fixed;right:20px;top:50px;float:left;}
+#size{padding:10px 0px 0px 0px;color:grey;}
+button{border:lightgrey solid 1px;border-radius:2px;padding:10px;font-size:14px;cursor:pointer;background:lightgrey;color:grey;}
+button:hover{background:tomato;color:#FFB1A3;border:#FFB1A3 solid 1px;}
+.note{float:left;}
+
+
+
+</style>
+
+<script type="text/javascript">
+
+   jQuery(document).ready(function($){
+	var currentChartSize = "medium";
+	var iframeSource = $('.chart-container iframe');
+	function appendSize(){
+		$(iframeSource).each(function( index ) {	
+		var newSource = $(this).attr('src').split("&")[0] + "&size=" + currentChartSize;
+		$(this).attr('src', newSource)
+		var chartWrapperClass = "chart-wrapper " +currentChartSize	
+		$(this).parent().attr('class', chartWrapperClass);
+		});
+	}
+	appendSize();
+	
+	$('.small').closest('.chart-title').css('font-size','10px');
+	$('#size-menu #small').on('click', function(){
+		currentChartSize = "small";
+		appendSize();
+		$('#size').text('Chart Size: 260 x 200');
+	});
+	
+	$('#size-menu #medium').on('click', function(){
+		currentChartSize = "medium";
+		appendSize();
+		$('#size').text('Chart Size: 500 x 340');
+	});
+	
+	$('#size-menu #large').on('click', function(){
+		currentChartSize = "large";
+		appendSize();
+		$('#size').text('Chart Size: 940 x 580');
+	});
+	
+	$('#size-menu #rail').on('click', function(){
+		currentChartSize = "rail";
+		appendSize();
+		$('#size').text('Chart Size: 330 x 280');
+	});
+	
+	});
+</script>
+</head>
+<body>
+<header>
+<h1>Chart Types</h1>
+<em class="note">*All data populated from published google spreadsheets</em>
+<div id="size-menu">
+	<button id="small">small</button>
+	<button id="medium">medium</button>
+	<button id="large">large</button>
+	<button id="rail">rail</button>
+	<div id="size">Chart Size: 500 x 340</div>
+</div>
+</header>
+<section>
+<ul id="menu">
+<li><a href="linechart-dynamic.html?size=large&key=0AkwgJlRgEsqUdGcwSWFGdWN4b3VaQW5QckVEQ3RGSVE">LineChart</a></li>
+<li><a href="piechart-dynamic.html?size=large&key=0AgAtV671nd7CdERwMHJzQUdKSGtqZmFWMjRUemVucEE">PieChart</a></li>
+<li><a href="barchart-dynamic.html?size=large&key=0AgAtV671nd7CdHlYalJxeDNyc0JndVMtZG5nMkw4Q3c">BarChart</a></li>
+<li><a href="columnchart-dynamic.html?size=large&key=0AgAtV671nd7CdHlYalJxeDNyc0JndVMtZG5nMkw4Q3c">ColumnChart</a></li>
+<li><a href="combochart-dynamic.html?size=large&key=0AgAtV671nd7CdGwzaHJVbHVUMHhtSXROeTBqcHV6SVE">ComboChart</a></li>
+<li><a href="combochart-line-bar-dynamic.html?size=large&key=0AgAtV671nd7CdHlYalJxeDNyc0JndVMtZG5nMkw4Q3c">ComboChart (Line and Bar)</a></li>
+<li><a href="geochart-dynamic.html?size=large&key=0AgAtV671nd7CdFF1V2ItaDhmRnVqNnV2NUQ0LVNCLVE">GeoChart</a></li>
+<li><a href="bubblechart-dynamic.html?size=large&key=0AgAtV671nd7CdFF1V2ItaDhmRnVqNnV2NUQ0LVNCLVE">BubbleChart</a></li>
+<!-- Create data for bubs -->
+<li><a href="candlestick-dynamic.html?size=large&key=0AgAtV671nd7CdDJQdFJSZ3FOTnVqWFdLaWd6dVdmYWc">CandlestickChart</a></li>
+<!-- Create data for CS -->
+<li><a href="scatterchart-dynamic.html?size=large&key=0AgAtV671nd7CdGpfWUhpTjFMLWhTV2JjMnJYWTdQc0E">ScatterChart</a></li>
+<!-- Create data for scatter -->
+<li><a href="treemap-dynamic.html?size=large&key=0AgAtV671nd7CdDdta3hOSno0LXllWFhFTVctMXFwZEE">TreeMap</a></li>
+<!-- Create data for treemap -->
+<li><a href="table-dynamic.html?size=large&key=0AgAtV671nd7CdDdta3hOSno0LXllWFhFTVctMXFwZEE">Table</a></li>
+<!-- Create data for table -->
+<li><a href="areachart-dynamic.html?size=large&key=0AgAtV671nd7CdDJQdFJSZ3FOTnVqWFdLaWd6dVdmYWc">AreaChart</a></li>
+<!-- Create data for areachart -->
+<li><a href="steppedareachart-dynamic.html?size=large&key=0AgAtV671nd7CdDJQdFJSZ3FOTnVqWFdLaWd6dVdmYWc">SteppedAreaChart</a></li>
+<!-- Create data for steppedareachart -->
+<li><a href="gauge-dynamic.html?size=large&key=0AgAtV671nd7CdDJZR3JrMU94ZHJsY0RlRTBmZS0wdnc">Gauge</a></li>
+<!-- Create data for gauge -->
+<li class="divider"><a href="interactivity.html">Interactive (Event Listeners)</a></li>
+</ul>
+
+<div id="chart-gallery">
+
+<div class="chart-container"><h1>PieChart</h1>
+	
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+	<iframe scrolling="no" src="piechart-dynamic.html?key=0AgAtV671nd7CdERwMHJzQUdKSGtqZmFWMjRUemVucEE&size="></iframe>
+	</div>
+	</div>
+
+<div class="chart-container"><h1>LineChart</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+	<iframe scrolling="no" src="linechart-dynamic.html?key=0AkwgJlRgEsqUdGcwSWFGdWN4b3VaQW5QckVEQ3RGSVE&size="></iframe>
+	</div>
+	</div>
+
+<div class="chart-container"><h1>BarChart</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>	
+<iframe scrolling="no" src="barchart-dynamic.html?key=0AgAtV671nd7CdHlYalJxeDNyc0JndVMtZG5nMkw4Q3c&size="></iframe>
+</div>
+</div>
+
+
+<div class="chart-container"><h1>ColumnChart</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+<iframe scrolling="no" src="columnchart-dynamic.html?key=0AgAtV671nd7CdHlYalJxeDNyc0JndVMtZG5nMkw4Q3c&size="></iframe>
+</div>
+</div>
+
+
+<div class="chart-container"><h1>ComboChart</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+<iframe scrolling="no" src="combochart-dynamic.html?key=0AgAtV671nd7CdGwzaHJVbHVUMHhtSXROeTBqcHV6SVE&size="></iframe>
+</div>
+</div>
+
+
+<div class="chart-container"><h1>ComboChart (Line and Bar)</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+<iframe scrolling="no" src="combochart-line-bar-dynamic.html?key=0AgAtV671nd7CdHlYalJxeDNyc0JndVMtZG5nMkw4Q3c&size="></iframe>
+</div>
+</div>
+
+<div class="chart-container"><h1>GeoChart</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+<iframe scrolling="no" src="geochart-dynamic.html?key=0AgAtV671nd7CdFF1V2ItaDhmRnVqNnV2NUQ0LVNCLVE&size="></iframe>
+</div>
+</div>
+
+
+<div class="chart-container"><h1>BubbleChart</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+<iframe scrolling="no" src="bubblechart-dynamic.html?key=0AgAtV671nd7CdFF1V2ItaDhmRnVqNnV2NUQ0LVNCLVE&size="></iframe>
+</div>
+</div>
+
+
+<div class="chart-container"><h1>CandleStickChart</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+<iframe scrolling="no" src="candlestick-dynamic.html?key=0AgAtV671nd7CdDJQdFJSZ3FOTnVqWFdLaWd6dVdmYWc&size="></iframe>
+</div>
+</div>
+
+
+<div class="chart-container"><h1>ScatterChart</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+<iframe scrolling="no" src="scatterchart-dynamic.html?key=0AgAtV671nd7CdGpfWUhpTjFMLWhTV2JjMnJYWTdQc0E&size="></iframe>
+</div>
+</div>
+
+<div class="chart-container"><h1>TreeMap</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+<iframe scrolling="no" src="treemap-dynamic.html?key=0AgAtV671nd7CdDdta3hOSno0LXllWFhFTVctMXFwZEE&size="></iframe>
+</div>
+</div>
+
+<div class="chart-container"><h1>Table</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+<iframe scrolling="no" src="table-dynamic.html?key=0AgAtV671nd7CdGZyU0IzZXFSc2xiVi0xa0QxNzJBNWc&size="></iframe>
+</div>
+</div>
+
+<div class="chart-container"><h1>AreaChart</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+<iframe scrolling="no" src="areachart-dynamic.html?key=0AgAtV671nd7CdDJQdFJSZ3FOTnVqWFdLaWd6dVdmYWc&size="></iframe>
+</div>
+</div>
+
+<div class="chart-container"><h1>SteppedAreaChart</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+<iframe scrolling="no" src="steppedareachart-dynamic.html?key=0AgAtV671nd7CdDJQdFJSZ3FOTnVqWFdLaWd6dVdmYWc&size="></iframe>
+</div>
+</div>
+
+<div class="chart-container"><h1>Gauge</h1>
+	<div class="chart-wrapper">
+		<div class="chart-title">
+			The title of this chart is really long briefly summarizing the content of the chart
+		</div>
+<iframe width="500" height="400" scrolling="no" src="gauge-dynamic.html?key=0AgAtV671nd7CdDJZR3JrMU94ZHJsY0RlRTBmZS0wdnc&size="></iframe>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<div id="google-link"><a href="https://google-developers.appspot.com/chart/interactive/docs/gallery">Google API Reference</a></div>
+
+</body>
+</html>

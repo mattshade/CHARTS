@@ -1,0 +1,119 @@
+<html>
+  <head>
+	<style>
+	body, div{margin:0px;padding:5px;font-family:Arial,Helvetica;}
+	.tracker{margin-left:-40px;}
+	h1{color:lightgrey;font-weight:normal;font-size:38px;margin:20px;}
+	</style>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="js/querywrapper.js"></script>
+    <script type="text/javascript">
+
+	    google.load('visualization', '1', {'packages' : ['corechart']});
+	    google.setOnLoadCallback(function() { sendAndDraw('') });
+
+	    // var dataSourceUrl = 'https://docs.google.com/spreadsheet/tq?key=0AgAtV671nd7CdHhPaG9obUhVanlhbW1Cay1lQW4zSlE&gid=5&range=B%3AC&headers=-1';
+	
+	var ShadeDataSourceUrl = 'https://docs.google.com/spreadsheet/tq?key=0AgAtV671nd7CdHhPaG9obUhVanlhbW1Cay1lQW4zSlE&gid=5&headers=-1';
+	var PaulDataSourceUrl = 'https://docs.google.com/spreadsheet/tq?key=0AgAtV671nd7CdHhPaG9obUhVanlhbW1Cay1lQW4zSlE&gid=4&headers=-1';
+	var FloDataSourceUrl = 'https://docs.google.com/spreadsheet/tq?key=0AgAtV671nd7CdHhPaG9obUhVanlhbW1Cay1lQW4zSlE&gid=2&headers=-1';
+	var CboneDataSourceUrl = 'https://docs.google.com/spreadsheet/tq?key=0AgAtV671nd7CdHhPaG9obUhVanlhbW1Cay1lQW4zSlE&gid=3&headers=-1';
+	var JoelDataSourceUrl = 'https://docs.google.com/spreadsheet/tq?key=0AgAtV671nd7CdHhPaG9obUhVanlhbW1Cay1lQW4zSlE&gid=0&headers=-1';
+	var VictorDataSourceUrl = 'https://docs.google.com/spreadsheet/tq?key=0AgAtV671nd7CdHhPaG9obUhVanlhbW1Cay1lQW4zSlE&gid=1&headers=-1'
+	
+	
+	    
+		var ShadeOptions = {'width':'100%', 'height':400,
+		title : 'Matt Shade',
+		          vAxis: {title: "Hours"},
+		          hAxis: {title: "Date"},
+		          isStacked:true};
+		
+		var PaulOptions = {'width':'100%', 'height':400,
+		title : 'Paul Alvord',
+		          vAxis: {title: "Hours"},
+		          hAxis: {title: "Date"},
+		          isStacked:true};
+		
+		var FloOptions = {'width':'100%', 'height':400,
+		title : 'Florence Hamamji',
+		          vAxis: {title: "Hours"},
+		          hAxis: {title: "Date"},
+		isStacked:true};
+		
+		var CboneOptions = {'width':'100%', 'height':400,
+		title : 'Matt Carbone',
+		          vAxis: {title: "Hours"},
+		          hAxis: {title: "Date"},
+		          isStacked:true};
+		
+		var JoelOptions = {'width':'100%', 'height':400,
+		title : 'Joel Easley',
+		          vAxis: {title: "Hours"},
+		          hAxis: {title: "Date"},
+		          isStacked:true};
+		
+		var VictorOptions = {'width':'100%', 'height':400,
+		title : 'Victor Gonzalez',
+		          vAxis: {title: "Hours"},
+		          hAxis: {title: "Date"},
+		          isStacked:true};
+
+	    function sendAndDraw(queryString) {   
+		  // matt shade
+		  var ShadeContainer = document.getElementById('shade_tracker');
+		  var cnbcShadeChart = new google.visualization.ColumnChart(ShadeContainer);	      
+		  var ShadeQuery = new google.visualization.Query(ShadeDataSourceUrl + queryString);
+		  var ShadeQueryWrapper = new QueryWrapper(ShadeQuery, cnbcShadeChart, ShadeOptions);
+		  ShadeQueryWrapper.sendAndDraw();
+		
+		  // paul alvord
+		  var PaulContainer = document.getElementById('paul_tracker');
+		  var cnbcPaulChart = new google.visualization.ColumnChart(PaulContainer);	      
+		  var PaulQuery = new google.visualization.Query(PaulDataSourceUrl + queryString);
+		  var PaulQueryWrapper = new QueryWrapper(PaulQuery, cnbcPaulChart, PaulOptions);
+		  PaulQueryWrapper.sendAndDraw();
+		
+	   	  // florence
+		  var FloContainer = document.getElementById('flo_tracker');
+		  var cnbcFloChart = new google.visualization.ColumnChart(FloContainer);	      
+		  var FloQuery = new google.visualization.Query(FloDataSourceUrl + queryString);
+		  var FloQueryWrapper = new QueryWrapper(FloQuery, cnbcFloChart, FloOptions);
+		  FloQueryWrapper.sendAndDraw();
+		
+		  // matt carbone
+		  var CboneContainer = document.getElementById('cbone_tracker');
+		  var cnbcCboneChart = new google.visualization.ColumnChart(CboneContainer);	      
+		  var CboneQuery = new google.visualization.Query(CboneDataSourceUrl + queryString);
+		  var CboneQueryWrapper = new QueryWrapper(CboneQuery, cnbcCboneChart, CboneOptions);
+		  CboneQueryWrapper.sendAndDraw();
+		
+		  // joel easley
+		  var JoelContainer = document.getElementById('joel_tracker');
+		  var cnbcJoelChart = new google.visualization.ColumnChart(JoelContainer);	      
+		  var JoelQuery = new google.visualization.Query(JoelDataSourceUrl + queryString);
+		  var JoelQueryWrapper = new QueryWrapper(JoelQuery, cnbcJoelChart, JoelOptions);
+		  JoelQueryWrapper.sendAndDraw();
+		
+	  	  // victor gonzalez
+		  var VictorContainer = document.getElementById('victor_tracker');
+		  var cnbcVictorChart = new google.visualization.ColumnChart(VictorContainer);	      
+		  var VictorQuery = new google.visualization.Query(VictorDataSourceUrl + queryString);
+		  var VictorQueryWrapper = new QueryWrapper(VictorQuery, cnbcVictorChart, VictorOptions);
+		  VictorQueryWrapper.sendAndDraw();
+	    }
+
+
+	  </script>
+  </head>
+
+<h1>CNBC.com Design Time Tracker</h1>
+	<div class="tracker" id="shade_tracker"></div>
+	<div class="tracker" id="paul_tracker"></div>
+    <div class="tracker" id="flo_tracker"></div>	
+	<div class="tracker" id="cbone_tracker"></div>
+	<div class="tracker" id="joel_tracker"></div>
+	<div class="tracker" id="victor_tracker"></div>
+  </body>
+</html>

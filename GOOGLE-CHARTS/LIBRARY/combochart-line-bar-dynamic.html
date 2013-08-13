@@ -1,0 +1,55 @@
+
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <link rel="stylesheet" type="text/css" href="css/cnbc-charts.css">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="js/querywrapper.js"></script>
+	<script type="text/javascript" src="js/stylizr.js"></script>
+    <script type="text/javascript">
+
+	    google.load('visualization', '1', {'packages' : ['corechart']});
+	    google.setOnLoadCallback(function() { sendAndDraw('') });
+
+	    var dataSourceUrl = dataSource + "&range=" + range + "&key=" + key;	
+	    var query;
+		
+		var options = {           
+			seriesType: "bars"			
+			,series:{
+				0:{targetAxisIndex:1, type: "line"}
+			    ,1:{targetAxisIndex:0}
+			}					
+			,'width':winWidth
+			,'height':winHeight
+			,'fontSize':12
+			,'backgroundColor':{fill:'none'}
+			,'titleTextStyle':{color:'#424858',fontSize:18}
+			,'hAxis':{baselineColor:'#d9dade',gridlines:{color:'#d9dade'}}
+			,'vAxis':{baselineColor:'#d9dade',gridlines:{color:'#d9dade'}}
+			,'chartArea':{left:40,top:30,right:50,width:"80%",height:"70%",backgroundColor: {fill: '#f0f3f4',opacity:100}}					
+			,'colors':['#ab0000','#0957aa','#006400','#f1d40d','#68228B','#FF8000','#0B243B','#999933','#436EEE','#0B4C5F','#696969','#6E8B3D','#663300','#AB82FF','#EE799F','#FF0000','#1E1E1E','#0000EE','#04B4AE','#31B404']
+			,'legend':{alignment:'left', position:'bottom', textStyle:{color:'#424858'}}				
+		 };
+
+	    function sendAndDraw(queryString) {
+	      var container = document.getElementById('chart_div');
+	      var cnbcChart = new google.visualization.ComboChart(container);
+		
+	      query && query.abort();
+	      query = new google.visualization.Query(dataSourceUrl + queryString);
+	      var queryWrapper = new QueryWrapper(query, cnbcChart, options);
+	      queryWrapper.sendAndDraw();
+	    }
+
+
+	  </script>
+  </head>
+
+  <body>
+	    <div id="chart_div"></div>
+		<div class="cnbc-logo">
+			<img src="img/cnbc-logo.png" />
+		</div>
+  </body>
+</html>

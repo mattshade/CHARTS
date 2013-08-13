@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/cnbc-charts.css">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="js/querywrapper.js"></script>
+	<script type="text/javascript" src="js/stylizr.js"></script>
+    <script type="text/javascript">
+
+	    google.load('visualization', '1', {'packages' : ['corechart']});
+	    google.setOnLoadCallback(function() { sendAndDraw('') });
+
+	    var dataSourceUrl = dataSource + "&range=" + range + "&key=" + key;
+	    var query;
+		var options = {			
+			'width':winWidth
+			,'height':winHeight
+			,'fontSize':12
+			,'backgroundColor':{fill:'none'}
+			,'titleTextStyle':{color:'#424858',fontSize:18}
+			,'hAxis':{baselineColor:'#d9dade',gridlines:{color:'#d9dade'}}
+			,'vAxis':{baselineColor:'#d9dade',gridlines:{color:'#d9dade'}}
+			,'chartArea':{left:40,top:30,right:10,width:"85%",height:"70%",backgroundColor: {fill: '#f0f3f4',opacity:100}}
+			,'legend':{alignment:'center',position:'bottom',textStyle:{color:'#424858'}}
+			,'colors':['#0957aa']
+			};
+
+	    function sendAndDraw(queryString) {
+	      var container = document.getElementById('chart_div');
+	      var cnbcChart = new google.visualization.ScatterChart(container);		
+	      query && query.abort();
+	      query = new google.visualization.Query(dataSourceUrl + queryString);
+	      var queryWrapper = new QueryWrapper(query, cnbcChart, options);
+	      queryWrapper.sendAndDraw();
+	    }
+
+
+	  </script>
+  </head>
+
+  <body>    
+	    <div id="chart_div"></div>
+		<div class="cnbc-logo">
+			<img src="img/cnbc-logo.png" />
+		</div>	
+  </body>
+</html>

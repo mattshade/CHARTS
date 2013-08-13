@@ -1,0 +1,110 @@
+<html>
+  <head>
+<style>
+*{font-family:Arial;}
+#sources{width:950px;}
+#sources h3{margin:0px;padding:0px;border-bottom:lightgrey solid 4px;font-weight:normal;}
+#sources ul{float:left;list-style:none;margin-left:0px;padding:0px 30px 0px 20px;line-height:28px;font-size:12px;color:grey;}
+
+#chart_div {
+-webkit-transform: rotate(-90deg);
+-moz-transform: rotate(-90deg);
+transform: rotate(-90deg);
+filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+float:left;
+height:1800px;
+margin-left:500px;
+
+/*height:1800px;*/ /* this should be the css value from the chart's width. you could set this programmatically with javascript or just take a good guess */
+}
+
+/*add an element after your container to fix the float issue like <br style="height:1%;clear:both" />*/
+
+/*add these css class styles:*/
+.google-visualization-orgchart-node {
+-webkit-transform: rotate(90deg);
+-moz-transform: rotate(90deg);
+transform: rotate(90deg);
+filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+/* another way to shrink the chart is to use a smaller font which can be styled in this class */
+}
+
+.google-visualization-orgchart-space-small {
+/* adjust this height as needed since this is really based on the width of your tree's root element */
+height:20px;
+}
+
+.google-visualization-orgchart-connrow-small {
+/* again this will vary base on how wide your elements are */
+height:42px;
+}
+</style>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="../querywrapper.js"></script>
+    <script type="text/javascript">
+
+	    google.load('visualization', '1', {'packages' : ['orgchart']});
+	    google.setOnLoadCallback(function() { sendAndDraw('') });
+
+	    var dataSourceUrl = 'https://docs.google.com/spreadsheet/tq?range=A1%3AB36&key=0AkwgJlRgEsqUdDZHcjY2Xy03cUdmVlhJLXBUYV82N1E&gid=0&headers=-1';
+	    var query;
+		
+		var options = {
+			'title':'Bracket Madness',
+		      
+				'width':950,
+				'height':550
+		      };
+			
+			
+			
+	    function sendAndDraw(queryString) {
+	      var container = document.getElementById('chart_div');
+	      var cnbcChart = new google.visualization.OrgChart(container);
+	
+			
+			// container.setColumns([0,1,2,3]);
+	      query && query.abort();
+	      query = new google.visualization.Query(dataSourceUrl + queryString);
+	
+	      var queryWrapper = new QueryWrapper(query, cnbcChart, options);
+	      queryWrapper.sendAndDraw();
+	
+	    }
+
+
+	  </script>
+  </head>
+
+  <body>
+<!--Div that will hold the pie chart-->
+    <div id="chart_div" ></div>
+<!-- <div id="sources">
+<h3>Sources:</h3>
+<ul>
+<li>houston source</li>
+<li>the white house</li>
+<li>boston's realty source</li>
+<li>detroit tough source</li>
+<li>minnesota info source here</li>
+<li>georgia source info</li>
+<li>vegas source</li>
+<li>new york source info</li>
+<li>Chitown info</li>
+<li>cleveland source</li>
+</ul>
+<ul>
+<li>texas source info</li>
+<li>california source stuff</li>
+<li>colorado source info</li>
+<li>miami info place</li>
+<li>arizona info</li>
+<li>portland board of info</li>
+<li>california info source</li>
+<li>california information</li>
+<li>washington info</li>
+<li>florida info source</li>
+</ul>
+</div> -->
+  </body>
+</html>

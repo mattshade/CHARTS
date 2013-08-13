@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <head>
+	<title>CNBC.com Google Chart Keynote Results</title>
+	<style>
+	*{font-family:Arial;}
+	a{text-decoration:none;color:grey;}
+	ul{padding-left:20px;}
+	a:hover{color:tomato;}
+	iframe{width:700px;height:500px;}
+	.chart{float:left;}
+	.bytes{margin-left:20px;}
+	body{margin-left:auto;margin-right:auto;width:1420px;}
+	h1,h2{color:lightgrey;font-weight:normal;}
+	#full-reports{margin-top:40px;float:left;}
+	</style>
+</head>
+<body>
+	<div id="chart-wrapper">
+		<div class="chart time">
+			<h1>Total Download Time(seconds)</h1>
+			<iframe src="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALIZATION/GOOGLE-CHARTS/columnchart-dynamic.html?winHeight=500&winWidth=700&key=0AgAtV671nd7CdHk4SVZiRG5iLU9ZY1JQTmpUUmJWNVE&range=A1%3AE6&headers=-1" frameborder="0" class="results"></iframe>
+		</div>
+		<div class="chart bytes">
+			<h1>Average Bytes Downloaded</h1>
+			<iframe src="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALIZATION/GOOGLE-CHARTS/columnchart-dynamic.html?winHeight=500&winWidth=700&key=0AgAtV671nd7CdGZyU0IzZXFSc2xiVi0xa0QxNzJBNWc&range=A1%3AE6&headers=-1" frameborder="0" class="results"></iframe>
+		</div>
+	</div>
+	<div id="full-reports">
+		<h2>Full Reports From Keynote</h2>
+		<ul>	
+			<li><a href="page_with_google_chart_IE.pdf">google chart IE</a></li>
+			<li><a href="page_with_google_chart_FF.pdf">google chart FF</a></li>
+			<li><a href="page_with_graphic_chart_IE.pdf">graphic chart IE</a></li>
+			<li><a href="page_with_graphic_chart_FF.pdf">graphic chart FF</a></li>
+		</ul>
+	</div>
+</body>
+</html>
