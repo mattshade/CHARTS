@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'CalibriBold';
-    src: url('calibribold.eot');
-    src: url('calibribold.eot') format('embedded-opentype'),
-         url('calibribold.woff') format('woff'),
-         url('calibribold.ttf') format('truetype'),
-         url('calibribold.svg#CalibriBold') format('svg');
-}
