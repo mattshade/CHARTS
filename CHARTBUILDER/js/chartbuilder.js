@@ -1,6 +1,6 @@
 var chart;
 ChartBuilder = {
-	allColors: ["0957AA","AB0000","406618","664082","E9E035","F7950A","006DBF","70B8FF","5DA1E1","4B89C4","3871A6","255A88","13436B","002B4D","E15D98","C44B81","A63869","882551","6B133A","4D0022","A67341","885A2D","6B4118","4D2704","BFAA00","4D4500","00BFA5","258880","136B63","004D45","59136B","3C004D"],
+	allColors: ["#0957AA","#AB0000","#406618","#664082","#E9E035","#F7950A","#006DBF","#70B8FF","#5DA1E1","#4B89C4","#3871A6","#255A88","#13436B","#002B4D","#E15D98","#C44B81","#A63869","#882551","#6B133A","#4D0022","#A67341","#885A2D","#6B4118","#4D2704","#BFAA00","#4D4500","#00BFA5","#258880","#136B63","#004D45","#59136B","#3C004D"],
 	curRaw: "",
 	getNewData: function(csv) {
 		// Split the csv information by lines
@@ -644,8 +644,8 @@ Gneiss.customYAxisFormat = function(axisGroup,i) {
 ChartBuilder.getDefaultConfig = function() {
   var chartConfig = {};
   
-  chartConfig.colors = ["#ff4cf4","#ffb3ff","#e69ce6","#cc87cc","#b373b3","#995f99","#804c80","#665266","#158eff","#99cdff","#9cc2e6","#87abcc","#7394b3","#5f7d99","#466780","#525c66"]
-  chartConfig.creditline = "CNBC";
+  chartConfig.colors = ["#0957AA","#AB0000","#406618","#664082","#E9E035","#F7950A","#006DBF","#70B8FF","#5DA1E1","#4B89C4","#3871A6","#255A88","#13436B","#002B4D","#E15D98","#C44B81","#A63869","#882551","#6B133A","#4D0022","#A67341","#885A2D","#6B4118","#4D2704","#BFAA00","#4D4500","#00BFA5","#258880","#136B63","#004D45","#59136B","#3C004D"]
+  chartConfig.creditline = "";
   
   return chartConfig;
 }

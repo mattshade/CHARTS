@@ -83,7 +83,7 @@ var defaultGneissChartConfig = {
 		}
 	],
 	sourceline: "",
-	creditline: "CNBC"
+	creditline: ""
 }
 
 var Gneiss = {
